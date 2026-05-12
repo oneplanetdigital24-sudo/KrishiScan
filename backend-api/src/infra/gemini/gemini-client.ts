@@ -1,4 +1,4 @@
-﻿import { config } from '../../common/config/env';
+import { config } from '../../common/config/env';
 import { ApiError } from '../../common/errors/api-error';
 
 type GeminiResponse = {
@@ -10,28 +10,52 @@ type GeminiResponse = {
 export class GeminiClient {
   private readonly base = 'https://generativelanguage.googleapis.com/v1beta';
 
+  private resolveModel(): string {
+    const configuredModel = (config.geminiModel || '').trim();
+    if (!configuredModel || configuredModel === 'gemini-1.5-flash') {
+      return 'gemini-2.5-flash';
+    }
+    return configuredModel;
+  }
+
   private async callGemini(systemInstruction: string, userText: string): Promise<string> {
-    const url = `${this.base}/models/${config.geminiModel}:generateContent?key=${config.geminiApiKey}`;
+    const model = this.resolveModel();
+    const url = `${this.base}/models/${model}:generateContent`;
     const body = {
-      system_instruction: { parts: [{ text: systemInstruction }] },
+      systemInstruction: { parts: [{ text: systemInstruction }] },
       contents: [{ role: 'user', parts: [{ text: userText }] }],
       generationConfig: { temperature: 0.4, maxOutputTokens: 512, topP: 0.9 },
     };
 
     const resp = await fetch(url, {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: {
+        'content-type': 'application/json',
+        'x-goog-api-key': config.geminiApiKey,
+      },
       body: JSON.stringify(body),
     });
 
     if (!resp.ok) {
-      if (resp.status === 429) throw new ApiError('RATE_LIMITED', 'AI rate limited', 429);
+      const errorText = await resp.text();
+      console.error('Gemini API error', {
+        status: resp.status,
+        statusText: resp.statusText,
+        model,
+        body: errorText.slice(0, 1000),
+      });
+
+      if (resp.status === 429) {
+        throw new ApiError('RATE_LIMITED', 'AI rate limited', 429);
+      }
       throw new ApiError('EXTERNAL_SERVICE_ERROR', 'AI service unavailable', 503);
     }
 
     const json = (await resp.json()) as GeminiResponse;
     const text = json.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
-    if (!text) throw new ApiError('EXTERNAL_SERVICE_ERROR', 'AI returned empty output', 503);
+    if (!text) {
+      throw new ApiError('EXTERNAL_SERVICE_ERROR', 'AI returned empty output', 503);
+    }
     return text;
   }
 

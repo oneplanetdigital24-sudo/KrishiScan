@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.viewmodels;
+package com.krishiscan.app.viewmodels;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -9,6 +9,10 @@ import com.krishiscan.app.data.remote.dto.SendChatMessageResponse;
 import com.krishiscan.app.repository.ChatRepository;
 
 public class ChatViewModel extends ViewModel {
+    private static final String AI_FALLBACK_REPLY =
+            "I could not reach the AI service right now. Please share the crop name, "
+                    + "leaf color changes, spots, pests, and watering condition so I can help step by step.";
+
     private final ChatRepository repository;
 
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>(false);
@@ -29,8 +33,25 @@ public class ChatViewModel extends ViewModel {
         loading.setValue(true);
         repository.sendMessage(text, result -> {
             loading.postValue(false);
-            if (result.success) reply.postValue(result.data);
-            else error.postValue(result.errorMessage);
+            if (result.success && result.data != null && result.data.reply != null && !result.data.reply.trim().isEmpty()) {
+                reply.postValue(result.data);
+                return;
+            }
+
+            if (shouldUseLocalFallback(result.errorMessage)) {
+                SendChatMessageResponse fallback = new SendChatMessageResponse();
+                fallback.reply = AI_FALLBACK_REPLY;
+                reply.postValue(fallback);
+                return;
+            }
+
+            if (result.success) {
+                SendChatMessageResponse fallback = new SendChatMessageResponse();
+                fallback.reply = AI_FALLBACK_REPLY;
+                reply.postValue(fallback);
+            } else {
+                error.postValue(result.errorMessage);
+            }
         });
     }
 
@@ -39,5 +60,14 @@ public class ChatViewModel extends ViewModel {
             if (result.success) history.postValue(result.data);
             else error.postValue(result.errorMessage);
         });
+    }
+
+    private boolean shouldUseLocalFallback(String errorMessage) {
+        if (errorMessage == null) return false;
+        String normalized = errorMessage.trim().toLowerCase();
+        return normalized.contains("ai service")
+                || normalized.contains("service unavailable")
+                || normalized.contains("service not working")
+                || normalized.contains("external_service_error");
     }
 }
