@@ -1,0 +1,19 @@
+﻿<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.KrishiScan" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/ks_primary</item>
+        <item name="colorOnPrimary">@color/ks_surface</item>
+        <item name="colorSecondary">@color/ks_secondary</item>
+        <item name="android:statusBarColor">@color/ks_primary_dark</item>
+        <item name="android:windowBackground">@color/ks_bg</item>
+    </style>
+
+    <style name="Widget.KrishiScan.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/radius_16</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
+
+    <style name="Widget.KrishiScan.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">@dimen/btn_height</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+</resources>

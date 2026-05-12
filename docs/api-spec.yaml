@@ -1,0 +1,308 @@
+﻿openapi: 3.0.3
+info:
+  title: KrishiScan Backend API
+  version: 1.0.0
+  description: API for KrishiScan mobile app. Firebase ID token is used as Bearer auth.
+servers:
+  - url: https://api.krishiscan.com/api/v1
+security:
+  - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: FirebaseIDToken
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code: { type: string }
+            message: { type: string }
+            requestId: { type: string }
+    User:
+      type: object
+      properties:
+        uid: { type: string }
+        name: { type: string }
+        email: { type: string }
+        phone: { type: string, nullable: true }
+        state: { type: string }
+        language: { type: string, enum: [en, hi, as] }
+        role: { type: string, enum: [farmer, student, extension_worker] }
+        profilePicUrl: { type: string, nullable: true }
+        createdAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+    SessionResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+    UpdateUserRequest:
+      type: object
+      properties:
+        name: { type: string, minLength: 3, maxLength: 100 }
+        phone: { type: string, pattern: '^[6-9][0-9]{9}$', nullable: true }
+        state: { type: string }
+        language: { type: string, enum: [en, hi, as] }
+        role: { type: string, enum: [farmer, student, extension_worker] }
+    UploadScanImageResponse:
+      type: object
+      properties:
+        imageUrl: { type: string }
+        imagePath: { type: string, nullable: true }
+        path: { type: string }
+    CreateScanRequest:
+      type: object
+      required: [cropName, diseaseName, confidence, imageUrl]
+      properties:
+        cropName: { type: string }
+        diseaseName: { type: string }
+        confidence: { type: number, minimum: 0, maximum: 1 }
+        imageUrl: { type: string }
+        imagePath: { type: string, nullable: true }
+        location:
+          type: object
+          nullable: true
+          properties:
+            lat: { type: number }
+            lng: { type: number }
+    CreateScanResponse:
+      type: object
+      properties:
+        scanId: { type: string }
+        severity: { type: string, enum: [mild, moderate, severe] }
+        treatment: { type: string, nullable: true }
+    Scan:
+      type: object
+      properties:
+        scanId: { type: string }
+        userId: { type: string }
+        cropName: { type: string }
+        diseaseName: { type: string }
+        confidence: { type: number }
+        severity: { type: string, enum: [mild, moderate, severe] }
+        imageUrl: { type: string }
+        imagePath: { type: string, nullable: true }
+        treatment: { type: string, nullable: true }
+        createdAt: { type: string, format: date-time }
+    ListScansResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Scan'
+        nextCursor:
+          type: string
+          nullable: true
+    SendChatMessageRequest:
+      type: object
+      required: [text]
+      properties:
+        text:
+          type: string
+          minLength: 1
+          maxLength: 500
+    SendChatMessageResponse:
+      type: object
+      properties:
+        messageId: { type: string }
+        reply: { type: string }
+        createdAt: { type: string, format: date-time }
+    ChatMessage:
+      type: object
+      properties:
+        messageId: { type: string }
+        sender: { type: string, enum: [user, ai] }
+        text: { type: string }
+        status: { type: string, enum: [sent, error, pending] }
+        createdAt: { type: string, format: date-time }
+    ListChatMessagesResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+        nextCursor:
+          type: string
+          nullable: true
+    SaveFcmTokenRequest:
+      type: object
+      required: [fcmToken]
+      properties:
+        fcmToken: { type: string, minLength: 10 }
+paths:
+  /auth/session:
+    post:
+      summary: Verify Firebase token and return session profile
+      responses:
+        '200':
+          description: Session created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /users/me:
+    get:
+      summary: Get current user profile
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    patch:
+      summary: Update current user profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserRequest'
+      responses:
+        '200':
+          description: Updated profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /uploads/scan-image:
+    post:
+      summary: Upload scan image
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Uploaded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadScanImageResponse'
+  /scans:
+    post:
+      summary: Create scan record and generate treatment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateScanRequest'
+      responses:
+        '201':
+          description: Scan created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateScanResponse'
+    get:
+      summary: List scans with filters and cursor pagination
+      parameters:
+        - in: query
+          name: limit
+          schema: { type: integer, minimum: 1, maximum: 50, default: 20 }
+        - in: query
+          name: cursor
+          schema: { type: string }
+        - in: query
+          name: crop
+          schema: { type: string }
+        - in: query
+          name: minConfidence
+          schema: { type: number, minimum: 0, maximum: 1 }
+      responses:
+        '200':
+          description: Scans list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListScansResponse'
+  /scans/{scanId}:
+    get:
+      summary: Get one scan
+      parameters:
+        - in: path
+          name: scanId
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Scan
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scan'
+    delete:
+      summary: Delete a scan and associated image
+      parameters:
+        - in: path
+          name: scanId
+          required: true
+          schema: { type: string }
+      responses:
+        '204':
+          description: Deleted
+  /chat/messages:
+    post:
+      summary: Send user message and receive AI reply
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendChatMessageRequest'
+      responses:
+        '200':
+          description: AI reply generated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendChatMessageResponse'
+    get:
+      summary: List chat messages
+      parameters:
+        - in: query
+          name: limit
+          schema: { type: integer, minimum: 1, maximum: 100, default: 50 }
+        - in: query
+          name: cursor
+          schema: { type: string }
+      responses:
+        '200':
+          description: Message list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListChatMessagesResponse'
+  /notifications/token:
+    post:
+      summary: Save user FCM token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaveFcmTokenRequest'
+      responses:
+        '204':
+          description: Token saved
+

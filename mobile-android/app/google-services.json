@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "292431971145",
+    "project_id": "krishiscan",
+    "storage_bucket": "krishiscan.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292431971145:android:0a8ee214da6df3ef779098",
+        "android_client_info": {
+          "package_name": "com.krishiscan.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292431971145-4btarcq48atch7k4s1ipvsa8sftj3uu3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.krishiscan.app",
+            "certificate_hash": "dc6e508378db62399aa439ee32b288028aec786e"
+          }
+        },
+        {
+          "client_id": "292431971145-8nrtn0j9u19fhs1rs59b2f9f0lee4lpk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsbEUdXwAvWTF56WEQnuYg_gDnZ-zkOkw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292431971145-8nrtn0j9u19fhs1rs59b2f9f0lee4lpk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,18 @@
+﻿<resources>
+    <string name="app_name">KrishiScan</string>
+    <string name="tagline">Smart Farming Starts Here</string>
+    <string name="scan_leaf">Scan Leaf</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="analyze">Analyze</string>
+    <string name="farmer_ai">Farmer AI</string>
+    <string name="profile">Profile</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="phone">Phone</string>
+    <string name="state">State</string>
+    <string name="send">Send</string>
+</resources>
