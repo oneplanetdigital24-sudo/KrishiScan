@@ -15,7 +15,11 @@ function must(name) {
 exports.config = {
     port: Number(process.env.PORT || 8080),
     firebaseStorageBucket: must('FIREBASE_STORAGE_BUCKET'),
+    firebaseServiceAccountJson: process.env.FIREBASE_SERVICE_ACCOUNT_JSON,
+    firebaseProjectId: process.env.FIREBASE_PROJECT_ID,
+    firebaseClientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+    firebasePrivateKey: process.env.FIREBASE_PRIVATE_KEY,
     geminiApiKey: must('GEMINI_API_KEY'),
-    geminiModel: process.env.GEMINI_MODEL || 'gemini-1.5-flash',
+    geminiModel: process.env.GEMINI_MODEL || 'gemini-2.5-flash',
     redisUrl: must('REDIS_URL'),
 };

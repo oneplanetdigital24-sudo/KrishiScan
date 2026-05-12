@@ -7,8 +7,16 @@ function normalizeStorageBucket(bucket: string): string {
 
 function buildCredential(): admin.credential.Credential | undefined {
   if (config.firebaseServiceAccountJson) {
-    const serviceAccount = JSON.parse(config.firebaseServiceAccountJson) as admin.ServiceAccount;
-    return admin.credential.cert(serviceAccount);
+    try {
+      const serviceAccount = JSON.parse(config.firebaseServiceAccountJson) as admin.ServiceAccount;
+      return admin.credential.cert(serviceAccount);
+    } catch (error) {
+      throw new Error(
+        `Invalid FIREBASE_SERVICE_ACCOUNT_JSON: ${
+          error instanceof Error ? error.message : 'Unable to parse JSON'
+        }`,
+      );
+    }
   }
 
   if (config.firebaseProjectId && config.firebaseClientEmail && config.firebasePrivateKey) {
@@ -19,15 +27,24 @@ function buildCredential(): admin.credential.Credential | undefined {
     });
   }
 
+  if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+    return admin.credential.applicationDefault();
+  }
+
   return undefined;
 }
 
 if (!admin.apps.length) {
   const credential = buildCredential();
-  admin.initializeApp({
-    credential,
+  const appOptions: admin.AppOptions = {
     storageBucket: normalizeStorageBucket(config.firebaseStorageBucket),
-  });
+  };
+
+  if (credential) {
+    appOptions.credential = credential;
+  }
+
+  admin.initializeApp(appOptions);
 }
 
 export const firestore = admin.firestore();
