@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.viewmodels;
+package com.krishiscan.app.viewmodels;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -44,8 +44,12 @@ public class ScanViewModel extends ViewModel {
 
             repository.createScan(req, createResult -> {
                 loading.postValue(false);
-                if (createResult.success) lastScan.postValue(createResult.data);
-                else error.postValue(createResult.errorMessage);
+                if (createResult.success) {
+                    lastScan.postValue(createResult.data);
+                    loadRecent();
+                } else {
+                    error.postValue(createResult.errorMessage);
+                }
             });
         });
     }

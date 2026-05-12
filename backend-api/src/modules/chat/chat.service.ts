@@ -15,7 +15,12 @@ export class ChatService {
     await this.chatRepository.createUserMessage(uid, text);
     const context = await this.chatRepository.getRecentContext(uid, 10);
     const prompt = JSON.stringify({ context, user: text });
-    const reply = await this.geminiClient.generateChatReply(prompt);
+    let reply: string;
+    try {
+      reply = await this.geminiClient.generateChatReply(prompt);
+    } catch {
+      reply = 'I could not reach the AI service right now. Please check leaf color, spots, watering, and pests, then try again with the crop name and symptoms.';
+    }
     const aiMessage = await this.chatRepository.createAiMessage(uid, reply);
 
     return { messageId: aiMessage.messageId, reply, createdAt: aiMessage.createdAt };

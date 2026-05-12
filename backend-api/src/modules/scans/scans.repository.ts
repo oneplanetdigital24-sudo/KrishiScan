@@ -1,5 +1,6 @@
-﻿import { randomUUID } from 'crypto';
+import { randomUUID } from 'crypto';
 import { firestore, admin } from '../../infra/firestore/firestore-client';
+import { serializeFirestoreDoc } from '../../common/utils/serialize-firestore';
 
 export type CreateScanInput = {
   cropName: string;
@@ -35,7 +36,7 @@ export class ScanRepository {
     }
 
     const snap = await q.get();
-    const items = snap.docs.map((d) => d.data());
+    const items = snap.docs.map((d) => serializeFirestoreDoc(d.data()));
     const nextCursor = snap.docs.length === limit ? snap.docs[snap.docs.length - 1].id : null;
     return { items, nextCursor };
   }
@@ -44,7 +45,7 @@ export class ScanRepository {
     const snap = await firestore.collection('scans').doc(scanId).get();
     const data = snap.data();
     if (!data || data.userId !== uid) throw new Error('Scan not found');
-    return data;
+    return serializeFirestoreDoc(data);
   }
 
   async delete(uid: string, scanId: string): Promise<{ imagePath?: string }> {

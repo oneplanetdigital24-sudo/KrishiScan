@@ -1,10 +1,12 @@
-﻿import { firestore, admin } from '../../infra/firestore/firestore-client';
+import { firestore, admin } from '../../infra/firestore/firestore-client';
+import { serializeFirestoreDoc } from '../../common/utils/serialize-firestore';
 
 export class AuthRepository {
   async findUserById(uid: string): Promise<Record<string, unknown> | null> {
     const snap = await firestore.collection('users').doc(uid).get();
     if (!snap.exists) return null;
-    return snap.data() ?? null;
+    const data = snap.data();
+    return data ? serializeFirestoreDoc(data) : null;
   }
 
   async upsertMinimalUser(uid: string, email?: string): Promise<Record<string, unknown>> {
@@ -23,6 +25,6 @@ export class AuthRepository {
       { merge: true },
     );
     const snap = await ref.get();
-    return snap.data() as Record<string, unknown>;
+    return serializeFirestoreDoc(snap.data() as Record<string, unknown>);
   }
 }

@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.activities;
+package com.krishiscan.app.activities;
 
 import android.os.Bundle;
 

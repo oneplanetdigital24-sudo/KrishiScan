@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.fragments;
+package com.krishiscan.app.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

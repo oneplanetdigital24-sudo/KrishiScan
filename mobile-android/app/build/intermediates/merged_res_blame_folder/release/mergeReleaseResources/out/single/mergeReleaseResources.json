@@ -1,0 +1,142 @@
+[
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/layout_fragment_scan.xml.flat",
+        "source": "com.krishiscan.app-main-54:/layout/fragment_scan.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/layout_fragment_profile.xml.flat",
+        "source": "com.krishiscan.app-main-54:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.krishiscan.app-main-54:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/menu_menu_bottom_nav.xml.flat",
+        "source": "com.krishiscan.app-main-54:/menu/menu_bottom_nav.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/layout_item_chat_user.xml.flat",
+        "source": "com.krishiscan.app-main-54:/layout/item_chat_user.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_ic_profile.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/ic_profile.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_ic_scan.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/ic_scan.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/layout_item_chat_ai.xml.flat",
+        "source": "com.krishiscan.app-main-54:/layout/item_chat_ai.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/layout_item_scan_history.xml.flat",
+        "source": "com.krishiscan.app-main-54:/layout/item_scan_history.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/layout_fragment_chat.xml.flat",
+        "source": "com.krishiscan.app-main-54:/layout/fragment_chat.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_ic_chat.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/ic_chat.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_bg_auth_screen.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/bg_auth_screen.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_ic_auth_email.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/ic_auth_email.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/layout_fragment_result.xml.flat",
+        "source": "com.krishiscan.app-main-54:/layout/fragment_result.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_bg_auth_glow_top.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/bg_auth_glow_top.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_bg_card.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/bg_card.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/xml_file_paths.xml.flat",
+        "source": "com.krishiscan.app-main-54:/xml/file_paths.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/navigation_nav_graph_main.xml.flat",
+        "source": "com.krishiscan.app-main-54:/navigation/nav_graph_main.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_bg_gradient_green.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/bg_gradient_green.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_ic_leaf.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/ic_leaf.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_bg_chip.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/bg_chip.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_bg_message_user.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/bg_message_user.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_ic_auth_lock.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/ic_auth_lock.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.krishiscan.app-main-54:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_ks_logo.png.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/ks_logo.png"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_bg_scan_button.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/bg_scan_button.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/layout_item_quick_prompt.xml.flat",
+        "source": "com.krishiscan.app-main-54:/layout/item_quick_prompt.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_bg_message_ai.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/bg_message_ai.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/layout_activity_auth.xml.flat",
+        "source": "com.krishiscan.app-main-54:/layout/activity_auth.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_bg_auth_glow_bottom.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/bg_auth_glow_bottom.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/layout_activity_splash.xml.flat",
+        "source": "com.krishiscan.app-main-54:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/drawable_ic_google.xml.flat",
+        "source": "com.krishiscan.app-main-54:/drawable/ic_google.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-release-53:/layout_activity_main.xml.flat",
+        "source": "com.krishiscan.app-main-54:/layout/activity_main.xml"
+    }
+]

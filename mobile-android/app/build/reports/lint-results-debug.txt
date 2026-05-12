@@ -1,0 +1,564 @@
+D:\Final year project\mobile-android\app\build\intermediates\lint-cache\lintReportDebug\migrated-jars\androidx.navigation.common.lint.NavigationCommonIssueRegistry-5daa12651be0734e..jar: Warning: Library lint checks out of date;
+these checks will be skipped!
+
+Lint found an issue registry (androidx.navigation.common.lint.NavigationCommonIssueRegistry)
+which was compiled against an older version of lint
+than this one. This is usually fine, but not in this
+case; some basic verification shows that the lint
+check jar references (for example) the following API
+which is no longer valid in this version of lint:
+org.jetbrains.kotlin.analysis.api.lifetime.KaDefaultLifetimeTokenProvider#Companion
+(Referenced from androidx/navigation/lint/UtilKt.class)
+
+Therefore, this lint check library is not included
+in analysis. This affects the following lint checks:
+EmptyNavDeepLink,WrongStartDestinationType,MissingSerializableAnnotation,MissingKeepAnnotation
+
+Recompile the checks against the latest version, or if
+this is a check bundled with a third-party library, see
+if there is a more recent version available.
+
+Version of Lint API this lint check is using is 14.
+The Lint API version currently running is 16 (8.7+). [ObsoleteLintCustomCheck]
+D:\Final year project\mobile-android\app\build\intermediates\lint-cache\lintReportDebug\migrated-jars\androidx.navigation.runtime.lint.NavigationRuntimeIssueRegistry-a8fea42aedb9bdb3..jar: Warning: Library lint checks out of date;
+these checks will be skipped!
+
+Lint found an issue registry (androidx.navigation.runtime.lint.NavigationRuntimeIssueRegistry)
+which was compiled against an older version of lint
+than this one. This is usually fine, but not in this
+case; some basic verification shows that the lint
+check jar references (for example) the following API
+which is no longer valid in this version of lint:
+org.jetbrains.kotlin.analysis.api.lifetime.KaDefaultLifetimeTokenProvider#Companion
+(Referenced from androidx/navigation/lint/UtilKt.class)
+
+Therefore, this lint check library is not included
+in analysis. This affects the following lint checks:
+DeepLinkInActivityDestination,WrongStartDestinationType,WrongNavigateRouteType,MissingKeepAnnotation,MissingSerializableAnnotation
+
+Recompile the checks against the latest version, or if
+this is a check bundled with a third-party library, see
+if there is a more recent version available.
+
+Version of Lint API this lint check is using is 14.
+The Lint API version currently running is 16 (8.7+). [ObsoleteLintCustomCheck]
+
+   Explanation for issues of type "ObsoleteLintCustomCheck":
+   Lint can be extended with "custom checks": additional checks implemented by
+   developers and libraries to for example enforce specific API usages
+   required by a library or a company coding style guideline.
+
+   The Lint APIs are not yet stable, so these checks may either cause a
+   performance degradation, or stop working, or provide wrong results.
+
+   This warning flags custom lint checks that are found to be using obsolete
+   APIs and will need to be updated to run in the current lint environment.
+
+   It may also flag issues found to be using a newer version of the API,
+   meaning that you need to use a newer version of lint (or Android Studio or
+   Gradle plugin etc) to work with these checks.
+
+D:\Final year project\mobile-android\app\build.gradle.kts:14: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk = 35
+        ~~~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+D:\Final year project\mobile-android\app\src\main\java\com\krishiscan\app\activities\SplashActivity.java:14: Warning: The application should not provide its own launch screen [CustomSplashScreen]
+public class SplashActivity extends AppCompatActivity {
+             ~~~~~~~~~~~~~~
+
+   Explanation for issues of type "CustomSplashScreen":
+   Starting in Android 12 (API 31+), the application's Launch Screen is
+   provided by the system and the application should not create its own,
+   otherwise the user will see two splashscreens. Please check the
+   SplashScreen class to check how the Splash Screen can be controlled and
+   customized.
+
+   https://developer.android.com/guide/topics/ui/splash-screen
+
+D:\Final year project\mobile-android\app\build.gradle.kts:49: Warning: A newer version of androidx.core:core-ktx than 1.13.1 is available: 1.18.0 [GradleDependency]
+    implementation("androidx.core:core-ktx:1.13.1")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:50: Warning: A newer version of androidx.appcompat:appcompat than 1.7.0 is available: 1.7.1 [GradleDependency]
+    implementation("androidx.appcompat:appcompat:1.7.0")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:51: Warning: A newer version of com.google.android.material:material than 1.12.0 is available: 1.13.0 [GradleDependency]
+    implementation("com.google.android.material:material:1.12.0")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:52: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1 [GradleDependency]
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:53: Warning: A newer version of androidx.recyclerview:recyclerview than 1.3.2 is available: 1.4.0 [GradleDependency]
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:54: Warning: A newer version of androidx.activity:activity than 1.9.3 is available: 1.13.0 [GradleDependency]
+    implementation("androidx.activity:activity:1.9.3")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:56: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel than 2.8.6 is available: 2.10.0 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.6")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:57: Warning: A newer version of androidx.lifecycle:lifecycle-livedata than 2.8.6 is available: 2.10.0 [GradleDependency]
+    implementation("androidx.lifecycle:lifecycle-livedata:2.8.6")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:59: Warning: A newer version of androidx.navigation:navigation-fragment than 2.8.3 is available: 2.9.8 [GradleDependency]
+    implementation("androidx.navigation:navigation-fragment:2.8.3")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:60: Warning: A newer version of androidx.navigation:navigation-ui than 2.8.3 is available: 2.9.8 [GradleDependency]
+    implementation("androidx.navigation:navigation-ui:2.8.3")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:62: Warning: A newer version of com.google.firebase:firebase-bom than 33.5.1 is available: 34.13.0 [GradleDependency]
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:64: Warning: A newer version of com.google.android.gms:play-services-auth than 21.2.0 is available: 21.5.1 [GradleDependency]
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:73: Warning: A newer version of androidx.test.ext:junit than 1.2.1 is available: 1.3.0 [GradleDependency]
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\build.gradle.kts:74: Warning: A newer version of androidx.test.espresso:espresso-core than 3.6.1 is available: 3.7.0 [GradleDependency]
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+D:\Final year project\mobile-android\app\src\main\java\com\krishiscan\app\adapters\ChatAdapter.java:26: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+        notifyDataSetChanged();
+        ~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\java\com\krishiscan\app\adapters\QuickPromptsAdapter.java:29: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+        notifyDataSetChanged();
+        ~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\java\com\krishiscan\app\adapters\ScanHistoryAdapter.java:36: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+        notifyDataSetChanged();
+        ~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NotifyDataSetChanged":
+   The RecyclerView adapter's onNotifyDataSetChanged method does not specify
+   what about the data set has changed, forcing any observers to assume that
+   all existing items and structure may no longer be valid. `LayoutManager`s
+   will be forced to fully rebind and relayout all visible views.
+
+D:\Final year project\mobile-android\app\src\main\res\layout\activity_main.xml:6: Warning: Possible overdraw: Root element paints background @color/ks_bg with a theme that also paints a background (inferred theme is @style/Theme.KrishiScan) [Overdraw]
+    android:background="@color/ks_bg">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\activity_splash.xml:6: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.KrishiScan) [Overdraw]
+    android:background="@android:color/white">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_chat.xml:6: Warning: Possible overdraw: Root element paints background @color/ks_bg with a theme that also paints a background (inferred theme is @style/Theme.KrishiScan) [Overdraw]
+    android:background="@color/ks_bg">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_profile.xml:6: Warning: Possible overdraw: Root element paints background @color/ks_bg with a theme that also paints a background (inferred theme is @style/Theme.KrishiScan) [Overdraw]
+    android:background="@color/ks_bg"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_result.xml:6: Warning: Possible overdraw: Root element paints background @color/ks_bg with a theme that also paints a background (inferred theme is @style/Theme.KrishiScan) [Overdraw]
+    android:background="@color/ks_bg"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_scan.xml:6: Warning: Possible overdraw: Root element paints background @color/ks_bg with a theme that also paints a background (inferred theme is @style/Theme.KrishiScan) [Overdraw]
+    android:background="@color/ks_bg"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+D:\Final year project\mobile-android\app\src\main\res\drawable\bg_gradient_green.xml:1: Warning: The resource R.drawable.bg_gradient_green appears to be unused [UnusedResources]
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+^
+D:\Final year project\mobile-android\app\src\main\res\drawable\bg_scan_button.xml:1: Warning: The resource R.drawable.bg_scan_button appears to be unused [UnusedResources]
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+^
+D:\Final year project\mobile-android\app\src\main\res\values\colors.xml:9: Warning: The resource R.color.ks_success appears to be unused [UnusedResources]
+    <color name="ks_success">#2E7D32</color>
+           ~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\colors.xml:10: Warning: The resource R.color.ks_warning appears to be unused [UnusedResources]
+    <color name="ks_warning">#EF6C00</color>
+           ~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\colors.xml:14: Warning: The resource R.color.ks_gradient_start appears to be unused [UnusedResources]
+    <color name="ks_gradient_start">#164C2B</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\colors.xml:15: Warning: The resource R.color.ks_gradient_end appears to be unused [UnusedResources]
+    <color name="ks_gradient_end">#6FB56F</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\dimens.xml:2: Warning: The resource R.dimen.space_4 appears to be unused [UnusedResources]
+    <dimen name="space_4">4dp</dimen>
+           ~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\dimens.xml:3: Warning: The resource R.dimen.space_8 appears to be unused [UnusedResources]
+    <dimen name="space_8">8dp</dimen>
+           ~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\dimens.xml:4: Warning: The resource R.dimen.space_12 appears to be unused [UnusedResources]
+    <dimen name="space_12">12dp</dimen>
+           ~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\dimens.xml:5: Warning: The resource R.dimen.space_16 appears to be unused [UnusedResources]
+    <dimen name="space_16">16dp</dimen>
+           ~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\dimens.xml:6: Warning: The resource R.dimen.space_20 appears to be unused [UnusedResources]
+    <dimen name="space_20">20dp</dimen>
+           ~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\dimens.xml:7: Warning: The resource R.dimen.space_24 appears to be unused [UnusedResources]
+    <dimen name="space_24">24dp</dimen>
+           ~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\dimens.xml:8: Warning: The resource R.dimen.space_32 appears to be unused [UnusedResources]
+    <dimen name="space_32">32dp</dimen>
+           ~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\dimens.xml:9: Warning: The resource R.dimen.radius_12 appears to be unused [UnusedResources]
+    <dimen name="radius_12">12dp</dimen>
+           ~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\dimens.xml:10: Warning: The resource R.dimen.radius_16 appears to be unused [UnusedResources]
+    <dimen name="radius_16">16dp</dimen>
+           ~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\dimens.xml:11: Warning: The resource R.dimen.radius_24 appears to be unused [UnusedResources]
+    <dimen name="radius_24">24dp</dimen>
+           ~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\navigation\nav_graph_main.xml:2: Warning: The resource R.navigation.nav_graph_main appears to be unused [UnusedResources]
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+^
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:3: Warning: The resource R.string.tagline appears to be unused [UnusedResources]
+    <string name="tagline">Smart Farming Starts Here</string>
+            ~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:32: Warning: The resource R.string.scan_leaf appears to be unused [UnusedResources]
+    <string name="scan_leaf">Scan Leaf</string>
+            ~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:33: Warning: The resource R.string.camera appears to be unused [UnusedResources]
+    <string name="camera">Camera</string>
+            ~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:34: Warning: The resource R.string.gallery appears to be unused [UnusedResources]
+    <string name="gallery">Gallery</string>
+            ~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:35: Warning: The resource R.string.analyze appears to be unused [UnusedResources]
+    <string name="analyze">Analyze</string>
+            ~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:36: Warning: The resource R.string.farmer_ai appears to be unused [UnusedResources]
+    <string name="farmer_ai">Farmer AI</string>
+            ~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:37: Warning: The resource R.string.profile appears to be unused [UnusedResources]
+    <string name="profile">Profile</string>
+            ~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:38: Warning: The resource R.string.login appears to be unused [UnusedResources]
+    <string name="login">Login</string>
+            ~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:39: Warning: The resource R.string.register appears to be unused [UnusedResources]
+    <string name="register">Register</string>
+            ~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:40: Warning: The resource R.string.email appears to be unused [UnusedResources]
+    <string name="email">Email</string>
+            ~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:41: Warning: The resource R.string.password appears to be unused [UnusedResources]
+    <string name="password">Password</string>
+            ~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:42: Warning: The resource R.string.full_name appears to be unused [UnusedResources]
+    <string name="full_name">Full Name</string>
+            ~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:43: Warning: The resource R.string.phone appears to be unused [UnusedResources]
+    <string name="phone">Phone</string>
+            ~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:44: Warning: The resource R.string.state appears to be unused [UnusedResources]
+    <string name="state">State</string>
+            ~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:45: Warning: The resource R.string.send appears to be unused [UnusedResources]
+    <string name="send">Send</string>
+            ~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\themes.xml:10: Warning: The resource R.style.Widget_KrishiScan_Card appears to be unused [UnusedResources]
+    <style name="Widget.KrishiScan.Card" parent="Widget.Material3.CardView.Elevated">
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:18: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+    <string name="auth_loading_sign_in">SIGNING IN...</string>
+                                        ~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\values\strings.xml:19: Warning: Replace "..." with ellipsis character (…, &#8230;) ? [TypographyEllipsis]
+    <string name="auth_loading_register">CREATING ACCOUNT...</string>
+                                         ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "TypographyEllipsis":
+   You can replace the string "..." with a dedicated ellipsis character,
+   ellipsis character (u2026, &#8230;). This can help make the text more
+   readable.
+
+   https://en.wikipedia.org/wiki/Ellipsis
+
+D:\Final year project\mobile-android\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml:2: Warning: The application adaptive icon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+D:\Final year project\mobile-android\app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml:2: Warning: The application adaptive roundIcon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+
+   Explanation for issues of type "MonochromeLauncherIcon":
+   If android:roundIcon and android:icon are both in your manifest, you must
+   either remove the reference to android:roundIcon if it is not needed; or,
+   supply the monochrome icon in the drawable defined by the android:roundIcon
+   and android:icon attribute.
+
+   For example, if android:roundIcon and android:icon are both in the
+   manifest, a launcher might choose to use android:roundIcon over
+   android:icon to display the adaptive app icon. Therefore, your themed
+   application iconwill not show if your monochrome attribute is not also
+   specified in android:roundIcon.
+
+D:\Final year project\mobile-android\app\src\main\res\drawable\ks_logo.png: Warning: Found bitmap drawable res/drawable/ks_logo.png in densityless folder [IconLocation]
+
+   Explanation for issues of type "IconLocation":
+   The res/drawable folder is intended for density-independent graphics such
+   as shapes defined in XML. For bitmaps, move it to drawable-mdpi and
+   consider providing higher and lower resolution versions in drawable-ldpi,
+   drawable-hdpi and drawable-xhdpi. If the icon really is density independent
+   (for example a solid color) you can place it in drawable-nodpi.
+
+   https://developer.android.com/guide/practices/screens_support.html
+
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_profile.xml:28: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView
+                 ~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_scan.xml:81: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\item_scan_history.xml:18: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageView
+         ~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+D:\Final year project\mobile-android\app\src\main\java\com\krishiscan\app\fragments\ProfileFragment.java:78: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            tvMeta.setText(state + " • " + role);
+                           ~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\java\com\krishiscan\app\fragments\ResultFragment.java:69: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            tvDisease.setText(crop + " " + disease);
+                              ~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\java\com\krishiscan\app\fragments\ResultFragment.java:71: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            tvSeverity.setText("Severity: " + severity);
+                               ~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\java\com\krishiscan\app\fragments\ResultFragment.java:71: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            tvSeverity.setText("Severity: " + severity);
+                               ~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\java\com\krishiscan\app\adapters\ScanHistoryAdapter.java:49: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        holder.tvDisease.setText(s.cropName + " " + s.diseaseName);
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\java\com\krishiscan\app\adapters\ScanHistoryAdapter.java:50: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        holder.tvMeta.setText(Math.round(s.confidence * 100) + "%" + (s.createdAt == null ? "" : " • " + s.createdAt));
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_chat.xml:41: Warning: Hardcoded string "Ask KrishiBot", should use @string resource [HardcodedText]
+            android:hint="Ask KrishiBot"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_chat.xml:50: Warning: Hardcoded string "➤", should use @string resource [HardcodedText]
+            android:text="➤"/>
+            ~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_profile.xml:42: Warning: Hardcoded string "Farmer Name", should use @string resource [HardcodedText]
+                        android:text="Farmer Name"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_profile.xml:51: Warning: Hardcoded string "Assam • Farmer", should use @string resource [HardcodedText]
+                        android:text="Assam • Farmer"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_profile.xml:75: Warning: Hardcoded string "Edit Profile", should use @string resource [HardcodedText]
+                    android:text="Edit Profile"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_profile.xml:83: Warning: Hardcoded string "Name", should use @string resource [HardcodedText]
+                    android:hint="Name">
+                    ~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_profile.xml:96: Warning: Hardcoded string "Phone", should use @string resource [HardcodedText]
+                    android:hint="Phone">
+                    ~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_profile.xml:109: Warning: Hardcoded string "State", should use @string resource [HardcodedText]
+                    android:hint="State">
+                    ~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_profile.xml:124: Warning: Hardcoded string "Save Profile", should use @string resource [HardcodedText]
+                    android:text="Save Profile" />
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_profile.xml:134: Warning: Hardcoded string "Logout", should use @string resource [HardcodedText]
+            android:text="Logout"
+            ~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_profile.xml:144: Warning: Hardcoded string "Scan History", should use @string resource [HardcodedText]
+            android:text="Scan History"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_result.xml:32: Warning: Hardcoded string "Tomato Early Blight", should use @string resource [HardcodedText]
+                    android:text="Tomato Early Blight"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_result.xml:41: Warning: Hardcoded string "Confidence: 87%", should use @string resource [HardcodedText]
+                    android:text="Confidence: 87%"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_result.xml:53: Warning: Hardcoded string "Severity: Severe", should use @string resource [HardcodedText]
+                    android:text="Severity: Severe"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_result.xml:59: Warning: Hardcoded string "Treatment Plan", should use @string resource [HardcodedText]
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Treatment Plan" android:textStyle="bold" android:textColor="@color/ks_text"/>
+                                                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_result.xml:67: Warning: Hardcoded string "AI treatment suggestion appears here...", should use @string resource [HardcodedText]
+            android:text="AI treatment suggestion appears here..."
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_result.xml:81: Warning: Hardcoded string "Save", should use @string resource [HardcodedText]
+                android:text="Save"/>
+                ~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_result.xml:89: Warning: Hardcoded string "Share", should use @string resource [HardcodedText]
+                android:text="Share"
+                ~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_scan.xml:18: Warning: Hardcoded string "Detect Crop Disease", should use @string resource [HardcodedText]
+            android:text="Detect Crop Disease"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_scan.xml:27: Warning: Hardcoded string "Take a clear photo in good lighting for best results.", should use @string resource [HardcodedText]
+            android:text="Take a clear photo in good lighting for best results."
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_scan.xml:50: Warning: Hardcoded string "📷 Camera", should use @string resource [HardcodedText]
+                    android:text="📷 Camera"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_scan.xml:70: Warning: Hardcoded string "🖼 Gallery", should use @string resource [HardcodedText]
+                    android:text="🖼 Gallery"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_scan.xml:94: Warning: Hardcoded string "Analyze", should use @string resource [HardcodedText]
+            android:text="Analyze" />
+            ~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_scan.xml:100: Warning: Hardcoded string "Recent Scans", should use @string resource [HardcodedText]
+            android:text="Recent Scans"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\item_chat_ai.xml:20: Warning: Hardcoded string "AI message", should use @string resource [HardcodedText]
+        android:text="AI message"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\item_chat_user.xml:20: Warning: Hardcoded string "User message", should use @string resource [HardcodedText]
+        android:text="User message"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\item_quick_prompt.xml:12: Warning: Hardcoded string "Best time to plant rice in Assam?", should use @string resource [HardcodedText]
+    android:text="Best time to plant rice in Assam?"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\item_scan_history.xml:34: Warning: Hardcoded string "Tomato Early Blight", should use @string resource [HardcodedText]
+                android:text="Tomato Early Blight"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\item_scan_history.xml:43: Warning: Hardcoded string "87% • 30 Apr", should use @string resource [HardcodedText]
+                android:text="87% • 30 Apr"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\menu\menu_bottom_nav.xml:3: Warning: Hardcoded string "Scan", should use @string resource [HardcodedText]
+    <item android:id="@+id/nav_scan" android:icon="@drawable/ic_scan" android:title="Scan"/>
+                                                                      ~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\menu\menu_bottom_nav.xml:4: Warning: Hardcoded string "Chat", should use @string resource [HardcodedText]
+    <item android:id="@+id/nav_chat" android:icon="@drawable/ic_chat" android:title="Chat"/>
+                                                                      ~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\menu\menu_bottom_nav.xml:5: Warning: Hardcoded string "Profile", should use @string resource [HardcodedText]
+    <item android:id="@+id/nav_profile" android:icon="@drawable/ic_profile" android:title="Profile"/>
+                                                                            ~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_chat.xml:49: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="8dp" to better support right-to-left layouts [RtlHardcoded]
+            android:layout_marginLeft="8dp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\fragment_profile.xml:36: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="12dp" to better support right-to-left layouts [RtlHardcoded]
+                    android:layout_marginLeft="12dp"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\item_quick_prompt.xml:6: Warning: Consider replacing android:layout_marginRight with android:layout_marginEnd="8dp" to better support right-to-left layouts [RtlHardcoded]
+    android:layout_marginRight="8dp"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\Final year project\mobile-android\app\src\main\res\layout\item_scan_history.xml:27: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="10dp" to better support right-to-left layouts [RtlHardcoded]
+            android:layout_marginLeft="10dp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "RtlHardcoded":
+   Using Gravity#LEFT and Gravity#RIGHT can lead to problems when a layout is
+   rendered in locales where text flows from right to left. Use Gravity#START
+   and Gravity#END instead. Similarly, in XML gravity and layout_gravity
+   attributes, use start rather than left.
+
+   For XML attributes such as paddingLeft and layout_marginLeft, use
+   paddingStart and layout_marginStart. NOTE: If your minSdkVersion is less
+   than 17, you should add both the older left/right attributes as well as the
+   new start/end attributes. On older platforms, where RTL is not supported
+   and the start/end attributes are unknown and therefore ignored, you need
+   the older left/right attributes. There is a separate lint check which
+   catches that type of error.
+
+   (Note: For Gravity#LEFT and Gravity#START, you can use these constants even
+   when targeting older platforms, because the start bitmask is a superset of
+   the left bitmask. Therefore, you can use gravity="start" rather than
+   gravity="left|start".)
+
+0 errors, 110 warnings

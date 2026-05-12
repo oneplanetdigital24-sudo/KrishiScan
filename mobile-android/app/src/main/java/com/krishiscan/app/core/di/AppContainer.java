@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.core.di;
+package com.krishiscan.app.core.di;
 
 import android.content.Context;
 

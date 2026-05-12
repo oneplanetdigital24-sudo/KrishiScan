@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ScanRepository = void 0;
 const crypto_1 = require("crypto");
 const firestore_client_1 = require("../../infra/firestore/firestore-client");
+const serialize_firestore_1 = require("../../common/utils/serialize-firestore");
 class ScanRepository {
     async create(uid, input) {
         const scanId = (0, crypto_1.randomUUID)();
@@ -28,7 +29,7 @@ class ScanRepository {
                 q = q.startAfter(c);
         }
         const snap = await q.get();
-        const items = snap.docs.map((d) => d.data());
+        const items = snap.docs.map((d) => (0, serialize_firestore_1.serializeFirestoreDoc)(d.data()));
         const nextCursor = snap.docs.length === limit ? snap.docs[snap.docs.length - 1].id : null;
         return { items, nextCursor };
     }
@@ -37,7 +38,7 @@ class ScanRepository {
         const data = snap.data();
         if (!data || data.userId !== uid)
             throw new Error('Scan not found');
-        return data;
+        return (0, serialize_firestore_1.serializeFirestoreDoc)(data);
     }
     async delete(uid, scanId) {
         const ref = firestore_client_1.firestore.collection('scans').doc(scanId);

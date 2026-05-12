@@ -6,6 +6,7 @@
 android {
     namespace = "com.krishiscan.app"
     compileSdk = 35
+    buildToolsVersion = "35.0.0"
 
     defaultConfig {
         applicationId = "com.krishiscan.app"
@@ -21,11 +22,11 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "API_BASE_URL", "\"http://10.0.2.2:8080/api/v1/\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://krishiscan-backend-api.onrender.com/api/v1/\"")
         }
         release {
             isMinifyEnabled = false
-            buildConfigField("String", "API_BASE_URL", "\"https://api.krishiscan.com/api/v1/\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://krishiscan-backend-api.onrender.com/api/v1/\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -72,5 +73,4 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 }
-
 

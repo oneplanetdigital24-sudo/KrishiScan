@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.core.network;
+package com.krishiscan.app.core.network;
 
 import com.google.gson.Gson;
 import com.krishiscan.app.data.remote.dto.ApiErrorResponse;

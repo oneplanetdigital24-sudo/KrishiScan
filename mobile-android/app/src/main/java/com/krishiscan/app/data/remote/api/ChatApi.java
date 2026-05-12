@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.data.remote.api;
+package com.krishiscan.app.data.remote.api;
 
 import com.krishiscan.app.data.remote.dto.ChatListResponse;
 import com.krishiscan.app.data.remote.dto.SendChatMessageRequest;

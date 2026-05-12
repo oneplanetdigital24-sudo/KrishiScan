@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.fragments;
+package com.krishiscan.app.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,5 +1,6 @@
-﻿import { randomUUID } from 'crypto';
+import { randomUUID } from 'crypto';
 import { firestore, admin } from '../../infra/firestore/firestore-client';
+import { serializeFirestoreDoc } from '../../common/utils/serialize-firestore';
 
 export class ChatRepository {
   async createUserMessage(uid: string, text: string): Promise<{ messageId: string }> {
@@ -34,7 +35,7 @@ export class ChatRepository {
       if (c.exists) q = q.startAfter(c);
     }
     const snap = await q.get();
-    const items = snap.docs.map((d) => d.data()).reverse();
+    const items = snap.docs.map((d) => serializeFirestoreDoc(d.data())).reverse();
     const nextCursor = snap.docs.length === limit ? snap.docs[snap.docs.length - 1].id : null;
     return { items, nextCursor };
   }

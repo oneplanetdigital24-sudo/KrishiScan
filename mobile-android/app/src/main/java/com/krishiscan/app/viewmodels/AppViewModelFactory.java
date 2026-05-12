@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.viewmodels;
+package com.krishiscan.app.viewmodels;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;

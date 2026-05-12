@@ -282,6 +282,11 @@ Copy files into:
 
 Then rebuild app.
 
+Important:
+- Replace the old asset files fully; do not keep an older `labels.txt`
+- `labels.txt` line count must exactly match the model output class count
+- If you train 15 classes, the app assets must also contain all 15 labels
+
 ---
 
 ## 11. Free-Tier Tips (Important)
@@ -312,6 +317,11 @@ for root, dirs, files in os.walk('/content/dataset'):
 - Increase training epochs slightly
 - Fine-tune last 30 layers
 - Ensure class balance and clean subset mapping
+
+### Error: app predicts the same disease every time
+- If your model already includes `tf.keras.applications.mobilenet_v2.preprocess_input`, Android should feed raw RGB values `0..255`, not values divided by `255`
+- Make sure you replaced both `krishiscan_model.tflite` and `labels.txt` together
+- If `labels.txt` has only 8 lines, the app can only predict 8 classes, not 15
 
 ---
 

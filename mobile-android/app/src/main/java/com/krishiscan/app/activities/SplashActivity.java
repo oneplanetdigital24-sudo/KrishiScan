@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.activities;
+package com.krishiscan.app.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,6 +23,6 @@ public class SplashActivity extends AppCompatActivity {
                     : new Intent(this, MainActivity.class);
             startActivity(i);
             finish();
-        }, 1800);
+        }, 700);
     }
 }

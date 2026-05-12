@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.viewmodels;
+package com.krishiscan.app.viewmodels;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.adapters;
+package com.krishiscan.app.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;

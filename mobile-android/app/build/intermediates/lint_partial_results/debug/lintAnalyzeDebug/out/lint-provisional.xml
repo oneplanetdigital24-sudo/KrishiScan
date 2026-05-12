@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.7.2" type="conditional_incidents">
+
+    <incident
+        id="CustomSplashScreen"
+        severity="warning"
+        message="The application should not provide its own launch screen">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/krishiscan/app/activities/SplashActivity.java"
+            line="14"
+            column="14"
+            startOffset="327"
+            endLine="14"
+            endColumn="28"
+            endOffset="341"/>
+        <map>
+            <condition targetGE="31"/>
+        </map>
+    </incident>
+
+    <incident
+        id="RtlHardcoded"
+        severity="warning"
+        message="Consider replacing `android:layout_marginLeft` with `android:layout_marginStart=&quot;8dp&quot;` to better support right-to-left layouts">
+        <fix-replace
+            description="Replace with android:layout_marginStart=&quot;8dp&quot;"
+            oldString="layout_marginLeft"
+            replacement="layout_marginStart"
+            priority="0"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_chat.xml"
+            line="49"
+            column="13"
+            startOffset="1771"
+            endLine="49"
+            endColumn="38"
+            endOffset="1796"/>
+        <map>
+            <entry
+                name="applies"
+                int="10"/>
+        </map>
+    </incident>
+
+    <incident
+        id="RtlHardcoded"
+        severity="warning"
+        message="Consider replacing `android:layout_marginLeft` with `android:layout_marginStart=&quot;12dp&quot;` to better support right-to-left layouts">
+        <fix-replace
+            description="Replace with android:layout_marginStart=&quot;12dp&quot;"
+            oldString="layout_marginLeft"
+            replacement="layout_marginStart"
+            priority="0"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_profile.xml"
+            line="36"
+            column="21"
+            startOffset="1459"
+            endLine="36"
+            endColumn="46"
+            endOffset="1484"/>
+        <map>
+            <entry
+                name="applies"
+                int="10"/>
+        </map>
+    </incident>
+
+    <incident
+        id="RtlHardcoded"
+        severity="warning"
+        message="Consider replacing `android:layout_marginRight` with `android:layout_marginEnd=&quot;8dp&quot;` to better support right-to-left layouts">
+        <fix-replace
+            description="Replace with android:layout_marginEnd=&quot;8dp&quot;"
+            oldString="layout_marginRight"
+            replacement="layout_marginEnd"
+            priority="0"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_quick_prompt.xml"
+            line="6"
+            column="5"
+            startOffset="224"
+            endLine="6"
+            endColumn="31"
+            endOffset="250"/>
+        <map>
+            <entry
+                name="applies"
+                int="10"/>
+        </map>
+    </incident>
+
+    <incident
+        id="RtlHardcoded"
+        severity="warning"
+        message="Consider replacing `android:layout_marginLeft` with `android:layout_marginStart=&quot;10dp&quot;` to better support right-to-left layouts">
+        <fix-replace
+            description="Replace with android:layout_marginStart=&quot;10dp&quot;"
+            oldString="layout_marginLeft"
+            replacement="layout_marginStart"
+            priority="0"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_scan_history.xml"
+            line="27"
+            column="13"
+            startOffset="958"
+            endLine="27"
+            endColumn="38"
+            endOffset="983"/>
+        <map>
+            <entry
+                name="applies"
+                int="10"/>
+        </map>
+    </incident>
+
+</incidents>

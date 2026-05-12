@@ -28,7 +28,7 @@ class ScanService {
             treatment = await this.geminiClient.generateTreatment(`${input.cropName} ${input.diseaseName} ${input.confidence}`);
         }
         catch {
-            treatment = null;
+            treatment = 'AI treatment is temporarily unavailable. Remove badly affected leaves, avoid overhead watering, keep the field clean, and ask a local agriculture officer before applying pesticide.';
         }
         const { scanId } = await this.scanRepository.create(uid, { ...input, severity, treatment });
         return { scanId, severity, treatment };

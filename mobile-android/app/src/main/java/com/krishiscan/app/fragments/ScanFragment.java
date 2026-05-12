@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.fragments;
+package com.krishiscan.app.fragments;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -37,6 +37,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -134,7 +135,7 @@ public class ScanFragment extends Fragment {
                 s.cropName = d.cropName;
                 s.diseaseName = d.diseaseName;
                 s.confidence = d.confidence;
-                s.createdAt = d.createdAt;
+                s.createdAt = displayValue(d.createdAt);
                 s.severity = d.severity;
                 s.treatment = d.treatment;
                 s.userId = d.userId;
@@ -171,10 +172,10 @@ public class ScanFragment extends Fragment {
             try {
                 Prediction p = classifier.classify(bitmap);
                 requireActivity().runOnUiThread(() -> {
-                    if (p.confidence < 0.40) {
-                        Toast.makeText(requireContext(), "Uncertain result. Please retake a clearer photo.", Toast.LENGTH_LONG).show();
-                        return;
-                    }
+            if (p.confidence < 0.15) {
+                Toast.makeText(requireContext(), "Uncertain result. Please retake a clearer photo.", Toast.LENGTH_LONG).show();
+                return;
+            }
                     latestPrediction = p;
                     vm.createScanWithUpload(selectedImageBytes, p.cropName, p.diseaseName, p.confidence);
                 });
@@ -191,7 +192,7 @@ public class ScanFragment extends Fragment {
             if (uri == null) return;
             try (InputStream is = requireContext().getContentResolver().openInputStream(uri)) {
                 if (is == null) return;
-                byte[] bytes = readAllBytes(is);
+                byte[] bytes = compressImage(readAllBytes(is));
                 selectedImageBytes = bytes;
                 Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 imgPreview.setImageBitmap(bm);
@@ -205,11 +206,11 @@ public class ScanFragment extends Fragment {
             try {
                 byte[] bytes;
                 if (pendingCameraFile != null && pendingCameraFile.exists()) {
-                    bytes = readAllBytes(new FileInputStream(pendingCameraFile));
+                    bytes = compressImage(readAllBytes(new FileInputStream(pendingCameraFile)));
                 } else {
                     InputStream is = requireContext().getContentResolver().openInputStream(pendingCameraUri);
                     if (is == null) return;
-                    bytes = readAllBytes(is);
+                    bytes = compressImage(readAllBytes(is));
                     is.close();
                 }
                 selectedImageBytes = bytes;
@@ -254,6 +255,36 @@ public class ScanFragment extends Fragment {
             buffer.write(data, 0, nRead);
         }
         return buffer.toByteArray();
+    }
+
+    private byte[] compressImage(byte[] imageBytes) {
+        Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+        if (bitmap == null) return imageBytes;
+
+        int quality = 88;
+        byte[] output = toJpeg(bitmap, quality);
+        while (output.length > 1_500_000 && quality > 45) {
+            quality -= 8;
+            output = toJpeg(bitmap, quality);
+        }
+        return output;
+    }
+
+    private byte[] toJpeg(Bitmap bitmap, int quality) {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, quality, out);
+        return out.toByteArray();
+    }
+
+    private String displayValue(Object value) {
+        if (value == null) return "";
+        if (value instanceof String) return (String) value;
+        if (value instanceof Map) {
+            Object seconds = ((Map<?, ?>) value).get("_seconds");
+            if (seconds == null) seconds = ((Map<?, ?>) value).get("seconds");
+            return seconds == null ? "" : String.valueOf(seconds);
+        }
+        return String.valueOf(value);
     }
 
     @Override

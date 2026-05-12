@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.data.remote.dto;
+package com.krishiscan.app.data.remote.dto;
 
 public class ScanDto {
     public String scanId;
@@ -9,5 +9,5 @@ public class ScanDto {
     public String severity;
     public String imageUrl;
     public String treatment;
-    public String createdAt;
+    public Object createdAt;
 }

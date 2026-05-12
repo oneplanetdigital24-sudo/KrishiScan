@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.repository;
+package com.krishiscan.app.repository;
 
 import androidx.annotation.NonNull;
 

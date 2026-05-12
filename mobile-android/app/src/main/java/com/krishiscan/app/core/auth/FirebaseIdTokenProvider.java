@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.core.auth;
+package com.krishiscan.app.core.auth;
 
 import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.auth.FirebaseAuth;

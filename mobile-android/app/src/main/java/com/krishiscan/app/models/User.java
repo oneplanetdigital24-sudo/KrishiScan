@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.models;
+package com.krishiscan.app.models;
 
 public class User {
     public String uid;

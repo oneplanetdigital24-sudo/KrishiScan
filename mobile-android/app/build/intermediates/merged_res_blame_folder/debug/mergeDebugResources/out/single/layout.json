@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "com.krishiscan.app-mergeDebugResources-52:/layout/fragment_scan.xml",
+        "source": "com.krishiscan.app-main-55:/layout/fragment_scan.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-mergeDebugResources-52:/layout/activity_auth.xml",
+        "source": "com.krishiscan.app-main-55:/layout/activity_auth.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-mergeDebugResources-52:/layout/item_chat_ai.xml",
+        "source": "com.krishiscan.app-main-55:/layout/item_chat_ai.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-mergeDebugResources-52:/layout/activity_main.xml",
+        "source": "com.krishiscan.app-main-55:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-mergeDebugResources-52:/layout/item_scan_history.xml",
+        "source": "com.krishiscan.app-main-55:/layout/item_scan_history.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-mergeDebugResources-52:/layout/fragment_chat.xml",
+        "source": "com.krishiscan.app-main-55:/layout/fragment_chat.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-mergeDebugResources-52:/layout/fragment_result.xml",
+        "source": "com.krishiscan.app-main-55:/layout/fragment_result.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-mergeDebugResources-52:/layout/item_chat_user.xml",
+        "source": "com.krishiscan.app-main-55:/layout/item_chat_user.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-mergeDebugResources-52:/layout/activity_splash.xml",
+        "source": "com.krishiscan.app-main-55:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-mergeDebugResources-52:/layout/fragment_profile.xml",
+        "source": "com.krishiscan.app-main-55:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.krishiscan.app-mergeDebugResources-52:/layout/item_quick_prompt.xml",
+        "source": "com.krishiscan.app-main-55:/layout/item_quick_prompt.xml"
+    }
+]

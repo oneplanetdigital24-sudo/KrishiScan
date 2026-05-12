@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.core.network;
+package com.krishiscan.app.core.network;
 
 import com.krishiscan.app.BuildConfig;
 import com.krishiscan.app.data.remote.api.AuthApi;

@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.ml;
+package com.krishiscan.app.ml;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
@@ -24,16 +24,35 @@ public class DiseaseClassifier {
     private final Interpreter interpreter;
     private final List<String> labels;
     private final ImagePreprocessor preprocessor;
+    private final int outputClassCount;
 
     public DiseaseClassifier(Context context) throws IOException {
         this.interpreter = new Interpreter(loadModelFile(context));
         this.labels = loadLabels(context);
-        this.preprocessor = new ImagePreprocessor();
+        int[] inputShape = interpreter.getInputTensor(0).shape();
+        int[] outputShape = interpreter.getOutputTensor(0).shape();
+
+        if (inputShape.length < 4) {
+            throw new IOException("Unexpected model input shape");
+        }
+        if (outputShape.length < 2) {
+            throw new IOException("Unexpected model output shape");
+        }
+
+        int inputHeight = inputShape[1];
+        int inputWidth = inputShape[2];
+        this.outputClassCount = outputShape[outputShape.length - 1];
+
+        if (labels.size() != outputClassCount) {
+            throw new IOException("labels.txt count (" + labels.size() + ") does not match model output classes (" + outputClassCount + ")");
+        }
+
+        this.preprocessor = new ImagePreprocessor(inputWidth, inputHeight);
     }
 
     public Prediction classify(android.graphics.Bitmap bitmap) {
         ByteBuffer input = preprocessor.preprocess(bitmap);
-        float[][] output = new float[1][labels.size()];
+        float[][] output = new float[1][outputClassCount];
         interpreter.run(input, output);
 
         int bestIndex = 0;

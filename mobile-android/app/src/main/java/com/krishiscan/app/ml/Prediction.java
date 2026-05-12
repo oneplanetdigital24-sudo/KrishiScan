@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.ml;
+package com.krishiscan.app.ml;
 
 public class Prediction {
     public final String cropName;

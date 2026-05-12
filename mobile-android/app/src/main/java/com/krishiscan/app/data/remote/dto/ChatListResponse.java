@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.data.remote.dto;
+package com.krishiscan.app.data.remote.dto;
 
 import java.util.List;
 

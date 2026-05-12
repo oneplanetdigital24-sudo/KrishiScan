@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.fragments;
+package com.krishiscan.app.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -98,7 +98,7 @@ public class ProfileFragment extends Fragment {
                 s.cropName = d.cropName;
                 s.diseaseName = d.diseaseName;
                 s.confidence = d.confidence;
-                s.createdAt = d.createdAt;
+                s.createdAt = displayValue(d.createdAt);
                 s.severity = d.severity;
                 s.treatment = d.treatment;
                 scans.add(s);
@@ -138,7 +138,7 @@ public class ProfileFragment extends Fragment {
         etPhone.setError(null);
         etState.setError(null);
 
-        if (name.length() < 3) {
+        if (!name.isEmpty() && name.length() < 3) {
             etName.setError("Name must be at least 3 characters");
             etName.requestFocus();
             return;
@@ -155,15 +155,30 @@ public class ProfileFragment extends Fragment {
         }
 
         Map<String, Object> patch = new HashMap<>();
-        patch.put("name", name);
+        if (!name.isEmpty()) patch.put("name", name);
         patch.put("phone", phone.isEmpty() ? null : phone);
         if (!state.isEmpty()) patch.put("state", state);
+        if (patch.isEmpty()) {
+            Toast.makeText(requireContext(), "Enter profile details to save", Toast.LENGTH_SHORT).show();
+            return;
+        }
         profileSavePending = true;
         authVm.updateMe(patch);
     }
 
     private String text(TextInputEditText et) {
         return et.getText() == null ? "" : et.getText().toString().trim();
+    }
+
+    private String displayValue(Object value) {
+        if (value == null) return "";
+        if (value instanceof String) return (String) value;
+        if (value instanceof Map) {
+            Object seconds = ((Map<?, ?>) value).get("_seconds");
+            if (seconds == null) seconds = ((Map<?, ?>) value).get("seconds");
+            return seconds == null ? "" : String.valueOf(seconds);
+        }
+        return String.valueOf(value);
     }
 }
 

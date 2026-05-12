@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChatRepository = void 0;
 const crypto_1 = require("crypto");
 const firestore_client_1 = require("../../infra/firestore/firestore-client");
+const serialize_firestore_1 = require("../../common/utils/serialize-firestore");
 class ChatRepository {
     async createUserMessage(uid, text) {
         const messageId = (0, crypto_1.randomUUID)();
@@ -35,7 +36,7 @@ class ChatRepository {
                 q = q.startAfter(c);
         }
         const snap = await q.get();
-        const items = snap.docs.map((d) => d.data()).reverse();
+        const items = snap.docs.map((d) => (0, serialize_firestore_1.serializeFirestoreDoc)(d.data())).reverse();
         const nextCursor = snap.docs.length === limit ? snap.docs[snap.docs.length - 1].id : null;
         return { items, nextCursor };
     }

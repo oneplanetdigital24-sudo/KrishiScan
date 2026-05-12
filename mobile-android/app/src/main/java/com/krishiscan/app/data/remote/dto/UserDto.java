@@ -1,4 +1,4 @@
-﻿package com.krishiscan.app.data.remote.dto;
+package com.krishiscan.app.data.remote.dto;
 
 public class UserDto {
     public String uid;
@@ -9,6 +9,6 @@ public class UserDto {
     public String language;
     public String role;
     public String profilePicUrl;
-    public String createdAt;
-    public String updatedAt;
+    public Object createdAt;
+    public Object updatedAt;
 }
